@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yuliia Molchanova — Senior Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #0f1f3d;
+    --blue:    #1a3a6b;
+    --mid:     #2e5fa3;
+    --accent:  #3b7dd8;
+    --light:   #e8eef8;
+    --lighter: #f4f7fc;
+    --white:   #ffffff;
+    --ink:     #1a1f2e;
+    --muted:   #5a6278;
+    --rule:    #d4dce8;
+    --serif:   'DM Serif Display', Georgia, serif;
+    --sans:    'DM Sans', system-ui, sans-serif;
+    --max:     1120px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--ink);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 64px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-name {
+    font-family: var(--serif); font-size: 18px;
+    color: var(--navy); text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    font-size: 14px; color: var(--muted);
+    text-decoration: none; letter-spacing: 0.02em; transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── SHARED LAYOUT ── */
+  .section-divider { height: 1px; background: var(--rule); max-width: var(--max); margin: 0 auto; }
+
+  .section {
+    max-width: var(--max); margin: 0 auto; padding: 96px 48px;
+  }
+  .section-inner {
+    display: grid; grid-template-columns: 220px 1fr;
+    gap: 64px; align-items: start;
+  }
+  .section-label { padding-top: 6px; position: sticky; top: 88px; }
+  .section-label span {
+    display: block; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 8px;
+  }
+  .section-label h2 {
+    font-family: var(--serif); font-size: 22px;
+    line-height: 1.25; color: var(--navy); font-weight: 400;
+  }
+  .section-body { min-width: 0; }
+  .section-body h3 {
+    font-family: var(--serif); font-size: 26px; font-weight: 400;
+    color: var(--navy); margin-bottom: 16px; margin-top: 52px; line-height: 1.25;
+  }
+  .section-body h3:first-child { margin-top: 0; }
+  .section-body p {
+    color: var(--muted); font-size: 16px; line-height: 1.8;
+    margin-bottom: 20px; max-width: 640px;
+  }
+  .section-body p:last-child { margin-bottom: 0; }
+  strong { color: var(--ink); font-weight: 500; }
+
+  /* ── INTRO / HERO ── */
+  .intro {
+    background: var(--navy);
+    padding: 160px 48px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .intro::before {
+    content: '';
+    position: absolute; top: -200px; right: -100px;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,125,216,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .intro-inner { max-width: var(--max); margin: 0 auto; position: relative; }
+  .intro-tag {
+    display: inline-block; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: #7eb3f0; margin-bottom: 28px;
+  }
+  .intro h1 {
+    font-family: var(--serif);
+    font-size: clamp(38px, 5.5vw, 68px);
+    line-height: 1.08; color: var(--white);
+    max-width: 860px; margin-bottom: 32px;
+  }
+  .intro h1 em { font-style: italic; color: #7eb3f0; }
+  .intro-bio {
+    font-size: 18px; color: rgba(255,255,255,0.65);
+    max-width: 600px; line-height: 1.75; margin-bottom: 48px;
+  }
+  .intro-stats {
+    display: flex; gap: 48px; flex-wrap: wrap;
+    padding: 32px 0; border-top: 1px solid rgba(255,255,255,0.12);
+    margin-bottom: 48px;
+  }
+  .intro-stat { display: flex; flex-direction: column; gap: 4px; }
+  .intro-stat-num {
+    font-family: var(--serif); font-size: 36px;
+    color: var(--white); line-height: 1;
+  }
+  .intro-stat-label {
+    font-size: 13px; color: rgba(255,255,255,0.45); max-width: 140px; line-height: 1.4;
+  }
+  .intro-skills {
+    display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 48px;
+  }
+  .skill-pill {
+    font-size: 13px; color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px; padding: 6px 16px;
+    background: rgba(255,255,255,0.05);
+  }
+  .intro-contact {
+    display: flex; gap: 24px; flex-wrap: wrap; align-items: center;
+    padding-top: 100px;
+  }
+  .contact-link {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 14px; color: rgba(255,255,255,0.6);
+    text-decoration: none; transition: color .2s;
+  }
+  .contact-link:hover { color: #7eb3f0; }
+  .contact-link svg { opacity: 0.6; }
+  .contact-link:hover svg { opacity: 1; }
+
+  /* ── CASE HEADER BAND ── */
+  .case-band {
+    background: var(--lighter);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 48px;
+  }
+  .case-band-inner { max-width: var(--max); margin: 0 auto; }
+  .case-band-tag {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+  }
+  .case-band h2 {
+    font-family: var(--serif); font-size: clamp(28px, 4vw, 44px);
+    color: var(--navy); line-height: 1.15; font-weight: 400;
+    max-width: 760px; margin-bottom: 28px;
+  }
+  .case-band h2 em { font-style: italic; color: var(--accent); }
+  .case-meta {
+    display: flex; gap: 40px; flex-wrap: wrap;
+    padding-top: 24px; border-top: 1px solid var(--rule);
+  }
+  .meta-item { display: flex; flex-direction: column; gap: 3px; }
+  .meta-label {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .meta-value { font-size: 14px; color: var(--navy); }
+
+  /* ── IMAGE BLOCKS ── */
+  .img-block {
+    margin: 40px 0; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--rule); background: var(--lighter);
+  }
+  .img-block img, .img-block object {
+    width: 100%; display: block;
+  }
+  .img-caption {
+    padding: 14px 20px; font-size: 13px; color: var(--muted);
+    border-top: 1px solid var(--rule); background: var(--white); line-height: 1.5;
+  }
+  .img-block-2col {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0;
+  }
+  .img-block-2col .img-block { margin: 0; }
+
+  /* ── PROCESS STEPS ── */
+  .process-step { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 12px; }
+  .step-num {
+    flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--navy); color: var(--white); font-size: 13px;
+    font-weight: 500; display: flex; align-items: center; justify-content: center; margin-top: 3px;
+  }
+  .step-text h4 { font-size: 16px; font-weight: 500; color: var(--ink); margin-bottom: 4px; }
+  .step-text p { margin: 0; font-size: 15px; color: var(--muted); max-width: 580px; }
+
+  /* ── PROBLEM LIST ── */
+  .problem-list { list-style: none; margin: 28px 0; display: flex; flex-direction: column; gap: 16px; }
+  .problem-list li {
+    display: flex; gap: 16px; align-items: flex-start;
+    font-size: 15px; color: var(--muted); line-height: 1.7;
+  }
+  .problem-list li::before {
+    content: ''; display: block; flex-shrink: 0;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); margin-top: 9px;
+  }
+
+  /* ── STAT CALLOUT ── */
+  .stat-row {
+    display: flex; gap: 40px; flex-wrap: wrap; margin: 40px 0;
+    padding: 32px; background: var(--lighter);
+    border-radius: 12px; border-left: 3px solid var(--accent);
+  }
+  .stat { display: flex; flex-direction: column; gap: 4px; }
+  .stat-num { font-family: var(--serif); font-size: 40px; color: var(--navy); line-height: 1; }
+  .stat-desc { font-size: 13px; color: var(--muted); max-width: 160px; line-height: 1.4; }
+
+  /* ── OUTCOME BLOCK ── */
+  .outcome-highlight {
+    background: var(--navy); color: var(--white);
+    border-radius: 16px; padding: 48px; margin: 40px 0;
+  }
+  .outcome-highlight h3 {
+    font-family: var(--serif); font-size: 28px; font-weight: 400;
+    color: var(--white); margin-bottom: 12px; margin-top: 0;
+  }
+  .outcome-highlight p { color: rgba(255,255,255,0.65); max-width: 560px; margin-bottom: 32px; }
+  .outcome-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .outcome-card {
+    background: rgba(255,255,255,0.07); border-radius: 10px;
+    padding: 24px; border: 1px solid rgba(255,255,255,0.12);
+  }
+  .outcome-card-num { font-family: var(--serif); font-size: 36px; color: #7eb3f0; line-height: 1; margin-bottom: 8px; }
+  .outcome-card-label { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.4; }
+
+  /* ── REFLECTION ── */
+  .reflection {
+    border-left: 3px solid var(--rule); padding-left: 24px; margin: 40px 0;
+  }
+  .reflection p { font-size: 15px; color: var(--muted); font-style: italic; max-width: 580px; }
+
+  /* ── SVG EMBED ── */
+  .svg-block {
+    margin: 40px 0; border-radius: 12px; border: 1px solid var(--rule);
+    background: var(--lighter); padding: 32px; overflow: hidden;
+  }
+  .svg-block img { width: 100%; height: auto; display: block; }
+  .svg-caption {
+    padding: 14px 20px; font-size: 13px; color: var(--muted);
+    border-top: 1px solid var(--rule); margin: 0 -32px -32px;
+    background: var(--white);
+  }
+
+  /* ── CASE 3 PLACEHOLDER ── */
+  .case-placeholder {
+    max-width: var(--max); margin: 0 auto; padding: 96px 48px;
+  }
+  .placeholder-card {
+    border: 2px dashed var(--rule); border-radius: 16px;
+    padding: 64px 48px; text-align: center;
+  }
+  .placeholder-tag {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 16px;
+  }
+  .placeholder-card h2 {
+    font-family: var(--serif); font-size: 32px; font-weight: 400;
+    color: var(--navy); margin-bottom: 16px;
+  }
+  .placeholder-card p { font-size: 15px; color: var(--muted); max-width: 480px; margin: 0 auto; }
+  .coming-soon-pill {
+    display: inline-block; margin-top: 24px;
+    font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    background: var(--light); border-radius: 20px; padding: 8px 20px;
+  }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy); padding: 64px 48px; margin-top: 96px; }
+  .footer-inner {
+    max-width: var(--max); margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 24px;
+  }
+  .footer-name { font-family: var(--serif); font-size: 20px; color: var(--white); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 14px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: rgba(255,255,255,0.8); }
+  .footer-note { font-size: 13px; color: rgba(255,255,255,0.25); width: 100%; }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 780px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .intro { padding: 120px 24px 64px; }
+    .case-band { padding: 40px 24px; }
+    .section { padding: 64px 24px; }
+    .section-inner { grid-template-columns: 1fr; gap: 24px; }
+    .section-label { position: static; }
+    .outcome-grid { grid-template-columns: 1fr 1fr; }
+    .intro-stats { gap: 28px; }
+    .img-block-2col { grid-template-columns: 1fr; }
+    footer { padding: 48px 24px; }
+    .case-placeholder { padding: 64px 24px; }
+    .placeholder-card { padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     NAV
+═══════════════════════════════════ -->
+<nav>
+  <a class="nav-name" href="#top">Yuliia Molchanova</a>
+  <ul class="nav-links">
+    <li><a href="#top">About</a></li>
+    <li><a href="#case1">Case 01</a></li>
+    <li><a href="#case2">Case 02</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════
+     INTRO
+═══════════════════════════════════ -->
+<section id="top" class="intro">
+  <div class="intro-inner">
+    <p class="intro-tag reveal">Senior Product Designer · 5 years experience</p>
+    <h1 class="reveal">Designing products that work <em>for people</em> and <em>for the business</em></h1>
+    <p class="intro-bio reveal">I'm a product designer with a background in user research, design systems, and accessibility. I care equally about the people using a product and the goals of the team building it — and I find that the most interesting design problems live exactly at that intersection.</p>
+
+    <div class="intro-stats reveal">
+      <div class="intro-stat">
+        <span class="intro-stat-num">5</span>
+        <span class="intro-stat-label">years in product and UX design</span>
+      </div>
+      <div class="intro-stat">
+        <span class="intro-stat-num">3</span>
+        <span class="intro-stat-label">brands unified under one design system</span>
+      </div>
+      <div class="intro-stat">
+        <span class="intro-stat-num">3→1</span>
+        <span class="intro-stat-label">Figma files consolidated into a single source of truth</span>
+      </div>
+    </div>
+
+    <div class="intro-skills reveal">
+      <span class="skill-pill">Design systems</span>
+      <span class="skill-pill">User research</span>
+      <span class="skill-pill">Accessibility (WCAG)</span>
+      <span class="skill-pill">Figma variables &amp; modes</span>
+      <span class="skill-pill">Stakeholder collaboration</span>
+      <span class="skill-pill">Team lead</span>
+      <span class="skill-pill">Usability testing</span>
+      <span class="skill-pill">Complex UX flows</span>
+    </div>
+
+    <div id="contact" class="intro-contact reveal">
+      <a class="contact-link" href="mailto:yuliyamolchanova22@gmail.com">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 9 10-9"/></svg>
+        yuliyamolchanova22@gmail.com
+      </a>
+      <a class="contact-link" href="https://linkedin.com/in/yuliia-mo" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>
+        linkedin.com/in/yuliia-mo
+      </a>
+      <a class="contact-link" href="https://t.me/ya_yuliia" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 5L2 12.5l7 1M21 5l-4 14-5.5-5M21 5 9 13.5M9 13.5 11.5 19"/></svg>
+        t.me/ya_yuliia
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CASE 01 — DESIGN SYSTEM
+═══════════════════════════════════ -->
+<div id="case1">
+
+  <div class="case-band reveal">
+    <div class="case-band-inner">
+      <p class="case-band-tag">Case study 01 · Design systems</p>
+      <h2>Multi-brand design system: <em>one source of truth</em> for three brands</h2>
+      <div class="case-meta">
+        <div class="meta-item">
+          <span class="meta-label">Role</span>
+          <span class="meta-value">Design system owner</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Scope</span>
+          <span class="meta-value">Full system — tokens, components, templates</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Consumers</span>
+          <span class="meta-value">Designers, developers, marketing</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Tools</span>
+          <span class="meta-value">Figma variables &amp; modes, Storybook</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Context -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">
+        <span>01</span>
+        <h2>Context</h2>
+      </div>
+      <div class="section-body reveal">
+        <p>The company operates three separate brands on a single codebase — Brand A as the main product, Brand B as a localised variant serving the Netherlands market, and Brand C as a distinct brand with a different visual identity. Each brand has its own colour scheme, typography, and in some cases different form requirements driven by local regulations.</p>
+        <p>Before this project, each brand had its own Figma file maintained separately. Any screen shared across brands — registration flows, doctor consultation pages, account pages — had to be manually replicated. Changing a heading style in one file meant repeating the same operation in the other two, property by property: font family, weight, line height, letter spacing.</p>
+        <p>That fragmentation was costing the team significant time and introducing inconsistencies. The goal was to consolidate everything into a single design system serving all three brands from one source, without sacrificing brand differentiation.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Problem -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">
+        <span>02</span>
+        <h2>Problem</h2>
+      </div>
+      <div class="section-body reveal">
+        <h3>Two compounding problems</h3>
+        <p>The challenge wasn't just cosmetic. The three brands had genuinely different design languages that couldn't simply share a stylesheet.</p>
+        <ul class="problem-list">
+          <li>Brand A and Brand B both use Roboto. Brand C uses Satoshi — a font with different optical metrics, different weight behaviour, different line height needs. The same "small heading" style required completely different values depending on the brand.</li>
+          <li>Some components needed to show different fields per brand. The Netherlands market (Brand B) required a BSN identification number and a medication data sharing consent block. Hard to maintain across three separate files.</li>
+          <li>The header needed a different logo per brand. A single flexible component had to accommodate all three without duplicating the structure.</li>
+        </ul>
+
+        <h3>The typography challenge</h3>
+        <p>The difference between Roboto and Satoshi goes beyond swapping a font family. A heading set in Roboto Bold at 26px/36px needs to become Satoshi Medium at 24px/29px to achieve the same visual presence — and that shift needs to be automatic, not something a designer has to remember each time.</p>
+
+        <div class="img-block reveal">
+          <img src="heading.png" alt="Side by side comparison of the same heading in Roboto and Satoshi showing different font metrics">
+          <p class="img-caption">The same heading component in Brand A (Roboto, 26px/700/36px) and Brand C (Satoshi, 24px/500/29px). Swapping only the font family breaks the layout — all metrics need to change simultaneously.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Process -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">
+        <span>03</span>
+        <h2>Process</h2>
+      </div>
+      <div class="section-body reveal">
+        <h3>Building the token architecture</h3>
+        <p>The solution required thinking in three levels of abstraction. The key insight was that the semantic layer is what changes per brand — the base palette and component structure remain identical across all three.</p>
+
+        <div class="svg-block reveal">
+          <img src="token-hierarchy.svg" alt="Token hierarchy diagram — Base tokens feed into Semantic tokens which feed into Component tokens across all three brands">
+          <p class="svg-caption">Token architecture — a single mode switch propagates through all three levels. Only the semantic layer differs per brand; base and component structure are shared.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <h4>Base tokens</h4>
+            <p>A complete palette of colour ramps — Grey, Blue, Green, Orange, Red, Yellow — each from stop 50 to 950. Every brand shares the same base set.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <h4>Semantic tokens</h4>
+            <p><strong>brand-default</strong> border maps to Orange/500 in Brand A, Green/500 in Brand B, Blue/500 in Brand C. Typography tokens are also defined here — font family, weight, line height, letter spacing — so switching brand mode changes all metrics at once.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <h4>Component tokens</h4>
+            <p>Per-state variables for every component — default, hovered, pressed, disabled. These reference the semantic layer, so a primary button automatically uses whichever accent colour the active brand defines.</p>
+          </div>
+        </div>
+
+        <h3>Typography encoded into modes</h3>
+        <p>Each text style carries not just font family but weight, line height, and letter spacing as mode-aware variables. Switching from Brand A to Brand C changes all of these simultaneously with no manual intervention.</p>
+
+        <div class="img-block reveal">
+          <img src="btn-3-modes.jpg" alt="Primary button component across all three brand modes showing default, hover, focus, active, and disabled states">
+          <p class="img-caption">The primary button across all three brand modes — one component definition, five states each, three completely different visual outputs driven entirely by the token architecture.</p>
+        </div>
+
+        <h3>Component flexibility for form fields</h3>
+        <p>The shipment form needed different fields per brand depending on local regulations. Boolean properties and mode-aware visibility let one component cover all three cases without maintaining separate versions.</p>
+
+        <div class="img-block reveal">
+          <img src="shipment.png" alt="Shipment form component in Brand A, Brand B, and Brand C modes showing how fields appear and disappear per brand">
+          <p class="img-caption">The delivery details form across all three brands. Brand B shows additional fields required by Dutch regulations — BSN number and medication data consent. One component, three configurations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Solution -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">
+        <span>04</span>
+        <h2>Solution</h2>
+      </div>
+      <div class="section-body reveal">
+        <h3>One system, one toggle</h3>
+        <p>A single Figma design system where switching a mode variable transforms every aspect of the brand simultaneously — colour scheme, full typography stack, component field visibility, logo, and accent colour. The same switch is mirrored in Storybook using identical semantic variable names, so designers and developers always work from the same source of truth.</p>
+        <p>The system is consumed by three groups: product designers in their daily work, developers who base their UI library on the same semantic variables, and the graphic design team who use the semantic tokens to align marketing materials with the product.</p>
+
+        <div class="img-block reveal">
+          <img src="system-overview.png" alt="System overview showing components across all three brand modes — subscription cards, alert dialogs, form inputs, order summaries">
+          <p class="img-caption">A cross-section of components in all three brand modes. Subscription cards, prescription alert dialogs, input fields, and order summaries — all driven by a single component set and the token architecture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Outcome -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">
+        <span>05</span>
+        <h2>Outcome</h2>
+      </div>
+      <div class="section-body reveal">
+        <div class="outcome-highlight">
+          <h3>A full day of work became ten minutes</h3>
+          <p>Before the consolidated system, updating a shared screen across all three brands meant manually replicating every property in three separate files. With the mode-based system, the same change takes a single toggle.</p>
+          <div class="outcome-grid">
+            <div class="outcome-card">
+              <div class="outcome-card-num">3→1</div>
+              <div class="outcome-card-label">Figma files consolidated into a single source of truth</div>
+            </div>
+            <div class="outcome-card">
+              <div class="outcome-card-num">~10×</div>
+              <div class="outcome-card-label">Faster brand-switching for day-to-day design work</div>
+            </div>
+            <div class="outcome-card">
+              <div class="outcome-card-num">3+</div>
+              <div class="outcome-card-label">Consumer groups aligned — design, engineering, marketing</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Scalability as validation</h3>
+        <p>The most meaningful indicator of a well-architected system isn't that it solved the problems you designed it for — it's that it handles problems you didn't anticipate. The mode-based approach has been applied to new regional requirements, new component variants, and cross-team marketing assets without structural changes to the system.</p>
+
+        <div class="reflection">
+          <p>"There was no before/after to show — the before state was fragmentation, not a different visual design. The value of the system isn't visible in a single screenshot; it's in the work that no longer needs to happen."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /case1 -->
+
+<!-- ═══════════════════════════════════
+     CASE 02 — WEIGHT MANAGEMENT
+═══════════════════════════════════ -->
+<div id="case2">
+
+  <div class="case-band reveal" style="background: var(--navy); border-color: transparent;">
+    <div class="case-band-inner">
+      <p class="case-band-tag" style="color: #7eb3f0;">Case study 02 · Healthcare product design</p>
+      <h2 style="color: var(--white);">Weight management: scaling a <em>subscription model</em> across three medications</h2>
+      <div class="case-meta" style="border-top-color: rgba(255,255,255,0.12);">
+        <div class="meta-item">
+          <span class="meta-label">Role</span>
+          <span class="meta-value" style="color: rgba(255,255,255,0.75);">Sole product designer</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Timeline</span>
+          <span class="meta-value" style="color: rgba(255,255,255,0.75);">~2 months</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Domain</span>
+          <span class="meta-value" style="color: rgba(255,255,255,0.75);">Healthtech / e-commerce</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Support</span>
+          <span class="meta-value" style="color: rgba(255,255,255,0.75);">Head of Product, Product Owner</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Context -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">
+        <span>01</span>
+        <h2>Context</h2>
+      </div>
+      <div class="section-body reveal">
+        <p>Weight management was a new product category for the company — a prescription pharmacy platform. Three medications needed to be introduced to users: Wegovy, Saxenda, and Mounjaro. All three fall under the same category, but each has a fundamentally different treatment model, injection type, and dosage logic. The task was to design a single, coherent purchase and subscription flow that worked for all three.</p>
+        <p>I was the sole designer on this project, conducting most of the research and owning the UX end to end, supported by the Head of Product and a responsible PO for business model questions.</p>
+
+        <div class="img-block reveal">
+          <img src="wegovy_saxenda_mounjaro_comparison.svg" alt="Comparison diagram showing key differences between Wegovy, Saxenda, and Mounjaro — treatment model, injection type, and dosage logic">
+          <p class="img-caption">Overview of the three weight management medications and their key differences. Each has a distinct treatment scheme — a single unified UI had to accommodate all three without confusing users.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Problem -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">
+        <span>02</span>
+        <h2>Problem</h2>
+      </div>
+      <div class="section-body reveal">
+        <h3>Three medications, three different treatment logics</h3>
+        <p>The complexity wasn't just about showing different products — it was that each product behaved differently over time and couldn't simply reuse the same UI patterns.</p>
+        <ul class="problem-list">
+          <li><strong>Wegovy</strong> uses a dose escalation scheme: the dosage increases every four weeks according to a fixed clinical schedule. Users must receive the right dose at the right stage of treatment.</li>
+          <li><strong>Saxenda</strong> contains a fixed daily injection amount. The key variable is volume — how many injections to include per shipment, calculated from the dosage and frequency.</li>
+          <li><strong>Mounjaro</strong> uses a single pen with a large amount of medication that the user divides themselves, increasing the dose from the same container. This creates a different pack size and subscription logic entirely.</li>
+        </ul>
+
+        <div class="img-block reveal">
+          <img src="medication_dose_progression_timeline.svg" alt="Timeline showing dosage progression over weeks for Wegovy, Saxenda, and Mounjaro — each with a different escalation pattern and duration">
+          <p class="img-caption">Dosage progression over time for all three medications. The different escalation patterns, durations, and maintenance doses meant the subscription model had to be designed differently for each — while appearing consistent to the user.</p>
+        </div>
+
+        <h3>The subscription model didn't fit</h3>
+        <p>The company's existing subscription model was built for simple monthly replenishment: choose a dosage, choose a quantity, receive the same thing every month. None of the three weight management medications worked that way. Dosages change over time. The clinical 4-week cycle doesn't align with calendar months. And the right next dosage for a user depends on how their treatment is progressing — information gathered during an earlier consultation.</p>
+
+        <h3>Six different user types with conflicting needs</h3>
+        <p>Working from a list of personas provided by the product team, I mapped out the pain points, jobs to be done, and likely behaviour patterns for six distinct user types — from first-time patients starting treatment to users who had already begun elsewhere and were switching pharmacies mid-journey.</p>
+
+        <div class="img-block reveal">
+          <img src="user-types.svg" alt="Six user persona cards showing type, key need, and key pain point for each weight management user segment">
+          <p class="img-caption">Six user types identified for the weight management category. Each had different starting points, different levels of medical knowledge, and different expectations of the purchase flow.</p>
+        </div>
+
+        <div class="img-block reveal">
+          <img src="user-stories.svg" alt="User stories mapped per persona showing jobs to be done and pain points across the weight management journey">
+          <p class="img-caption">User stories mapped per persona, used to validate that the designed flow covered the needs of all six user types — including edge cases like mid-journey switchers and users experiencing side effects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Process -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">
+        <span>03</span>
+        <h2>Process</h2>
+      </div>
+      <div class="section-body reveal">
+        <h3>Mapping the logic before designing</h3>
+        <p>Before wireframing anything, I built out the decision logic that would drive what dosages to show, in what order, and with what default selected — based on answers a user had given during the medical consultation earlier in the checkout flow. This was the foundation that everything else was built on.</p>
+
+        <div class="img-block reveal">
+          <img src="full-flow.png" alt="Full decision flow diagram showing how consultation answers route users to specific dosage options for Wegovy, Saxenda, and Mounjaro">
+          <p class="img-caption">The full dosage logic flow — branching by medication, prior usage status, current dosage, and side effect history. This document was used to align with the product team and developers before any UI was built.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <h4>Contextual dosage display</h4>
+            <p>Only medically valid next dosages are shown, based on the user's consultation answers. A first-time user sees a different set of options than someone already mid-treatment — filtering out clinically impossible choices reduces cognitive load and prescription risk.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <h4>Subscription with dosage progression</h4>
+            <p>Since dosage changes every four weeks, users need to understand that what they subscribe to today may change at the next cycle. A tooltip-based communication layer was designed to set this expectation without cluttering the purchase UI.</p>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <h4>Persona validation</h4>
+            <p>Each of the six personas was walked through the designed flow to verify their needs were met. This surfaced two edge cases that required changes to the default selection logic before handoff.</p>
+          </div>
+        </div>
+
+        <h3>Iterating on dosage and pack size selection</h3>
+        <p>The dosage selector went through several rounds of iteration. The central challenge was presenting options that looked consistent across three medications with very different pack structures — some with multiple pack sizes, some with none — without making the differences feel confusing or arbitrary to the user.</p>
+
+        <div class="img-block reveal">
+          <img src="Mounjaro.svg" alt="Early and refined iterations of the Mounjaro dosage and pack size selector, showing how the layout evolved to handle this medication's unique pen-based dosing model">
+          <p class="img-caption">Iteration history for the Mounjaro dosage selector. Mounjaro's single-pen model — where the user doses from the same container rather than choosing between separate pens — required a different layout approach compared to Wegovy and Saxenda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Solution -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">
+        <span>04</span>
+        <h2>Solution</h2>
+      </div>
+      <div class="section-body reveal">
+        <h3>A unified UI that adapts per medication</h3>
+        <p>The final design is a single dosage and subscription selector that adapts its structure, options, and communication layer to the medication type — without exposing that complexity to the user. The layout is consistent enough to feel familiar, and different enough to be accurate for each product's clinical reality.</p>
+        <p>Due to technical resource constraints at the time of development, the implemented version differs slightly from the final designs — some of the more nuanced UI details were descoped. The screens below reflect what was built and is live in production.</p>
+
+        <div class="img-block reveal">
+          <img src="final-wm.png" alt="Final production UI showing the dosage and subscription selector for Wegovy, Mounjaro, and Saxenda side by side">
+          <p class="img-caption">The final production UI across all three weight management medications. Wegovy shows pen-based dosage options with a subscription plan selector. Mounjaro shows the KwikPen format with a single dosage option. Saxenda shows volume-based options across different pack sizes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Outcome -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label reveal">
+        <span>05</span>
+        <h2>Outcome</h2>
+      </div>
+      <div class="section-body reveal">
+        <div class="outcome-highlight">
+          <h3>A new product category, successfully launched</h3>
+          <p>All three medications were integrated into the platform and are actively purchased by users. The flow handles six distinct user personas, three different treatment models, and a subscription logic that didn't previously exist in the company's product.</p>
+          <div class="outcome-grid">
+            <div class="outcome-card">
+              <div class="outcome-card-num">3</div>
+              <div class="outcome-card-label">medications launched under one unified flow</div>
+            </div>
+            <div class="outcome-card">
+              <div class="outcome-card-num">6</div>
+              <div class="outcome-card-label">user personas validated against the design</div>
+            </div>
+            <div class="outcome-card">
+              <div class="outcome-card-num">~2mo</div>
+              <div class="outcome-card-label">from first brief to shipped product, sole designer</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>What I'd do differently</h3>
+        <p>The subscription model for dosage-escalating medications is inherently complex, and the tooltip-based communication approach — while practical within the technical constraints — is a compromise. In an ideal scenario, the system would automatically propose the next dosage at the right moment, rather than relying on the user to remember and act. That remains an open design problem worth returning to.</p>
+        <p>Subscription cancellation rates across the platform dropped from 40% to 14% following a separate project to redesign the subscription management flow — a strong signal that users are engaging with the service long-term once they're past the initial purchase.</p>
+
+        <div class="reflection">
+          <p>"The hardest part wasn't designing the UI — it was understanding the clinical reality well enough to design something that was both accurate and usable. The decision logic diagram turned out to be as important an artifact as any screen."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /case2 -->
+
+<!-- ═══════════════════════════════════
+     CASE 03 — PLACEHOLDER
+═══════════════════════════════════ -->
+<div class="section-divider" style="max-width: 100%;"></div>
+<div class="case-placeholder reveal">
+  <div class="placeholder-card">
+    <p class="placeholder-tag">Case study 03</p>
+    <h2>Accessibility implementation</h2>
+    <p>Organising and implementing EAA and WCAG 2.0 compliance across a multi-brand platform — accessibility audit, documentation, and team education.</p>
+    <span class="coming-soon-pill">Coming soon</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     FOOTER
+═══════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-name">Yuliia Molchanova</span>
+    <div class="footer-links">
+      <a href="mailto:yuliyamolchanova22@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/yuliia-mo" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://t.me/ya_yuliia" target="_blank" rel="noopener">Telegram</a>
+    </div>
+    <p class="footer-note">All brand names and identifiable product details have been anonymised where required.</p>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
