@@ -117,7 +117,7 @@
   }
   .intro h1 em { font-style: italic; color: #7eb3f0; }
   .intro-bio {
-    font-size: 18px; color: rgba(255,255,255,0.65);
+    font-size: 22px; color: rgba(255,255,255,0.65);
     max-width: 600px; line-height: 1.75; margin-bottom: 48px;
   }
   .intro-stats {
@@ -148,12 +148,28 @@
   }
   .contact-link {
     display: flex; align-items: center; gap: 8px;
-    font-size: 14px; color: rgba(255,255,255,0.6);
+    font-size: 18px; color: rgba(255,255,255,0.6);
     text-decoration: none; transition: color .2s;
   }
   .contact-link:hover { color: #7eb3f0; }
   .contact-link svg { opacity: 0.6; }
   .contact-link:hover svg { opacity: 1; }
+
+  .showcase_section {}
+  .showcase_section div {
+   }
+  .showcase_section img {
+    max-width: 100%;
+    /* border-radius: 24px; */
+  }
+  .showcase_imgs_wrap {
+    display: flex;
+    gap: 24px;
+    padding-top: 40px;
+  }
+  .showcase_imgs_wrap div {
+    max-width: 50%;
+  }
 
   /* ── CASE HEADER BAND ── */
   .case-band {
@@ -337,9 +353,10 @@
   <a class="nav-name" href="#top">Yuliia Molchanova</a>
   <ul class="nav-links">
     <li><a href="#top">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#examples">Work examples</a></li>
     <li><a href="#case1">Case 01</a></li>
     <li><a href="#case2">Case 02</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -349,23 +366,8 @@
 <section id="top" class="intro">
   <div class="intro-inner">
     <p class="intro-tag reveal">Senior Product Designer · 5 years experience</p>
-    <h1 class="reveal">Designing products that work <em>for people</em> and <em>for the business</em></h1>
-    <p class="intro-bio reveal">I'm a product designer with a background in user research, design systems, and accessibility. I care equally about the people using a product and the goals of the team building it — and I find that the most interesting design problems live exactly at that intersection.</p>
-
-    <div class="intro-stats reveal">
-      <div class="intro-stat">
-        <span class="intro-stat-num">5</span>
-        <span class="intro-stat-label">years in product and UX design</span>
-      </div>
-      <div class="intro-stat">
-        <span class="intro-stat-num">3</span>
-        <span class="intro-stat-label">brands unified under one design system</span>
-      </div>
-      <div class="intro-stat">
-        <span class="intro-stat-num">3→1</span>
-        <span class="intro-stat-label">Figma files consolidated into a single source of truth</span>
-      </div>
-    </div>
+    <h1 class="reveal">Yuliia Molchanova</h1>
+    <p class="intro-bio reveal">Hello! I'm a product designer with a background in user research, design systems, and accessibility. I care equally about the people using a product and the goals of the team building it — and I find that the most interesting design problems live exactly at that intersection.</p>
 
     <div class="intro-skills reveal">
       <span class="skill-pill">Design systems</span>
@@ -391,6 +393,31 @@
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 5L2 12.5l7 1M21 5l-4 14-5.5-5M21 5 9 13.5M9 13.5 11.5 19"/></svg>
         t.me/ya_yuliia
       </a>
+      <a class="contact-link" href="https://t.me/ya_yuliia" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M5 7h5.5a2.75 2.75 0 0 1 0 5.5H5V17h6a2.5 2.5 0 0 0 0-5"/><line x1="14" y1="8" x2="19" y2="8"/><path d="M14 12.5h5a2.5 2.5 0 0 0-5 0v0a2.5 2.5 0 0 0 5 0"/></svg>
+        https://www.behance.net/yuliiamolchan
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="examples" class="showcase_section">
+  <div class="case-band reveal">
+    <div class="case-band-inner">
+      <p class="case-band-tag">Work examples</p>
+      <div class="case-meta">
+        <div>
+        <img src="kusto_process (1).png" />
+      </div>
+      <div class="showcase_imgs_wrap">
+        <div>
+        <img src="apomeds.com_de (1).png" />
+      </div>
+      <div>
+        <img src="easymeds.nl_ (1).png" />
+      </div>
+      </div>
+      </div>
     </div>
   </div>
 </section>
@@ -429,7 +456,7 @@
   <section class="section">
     <div class="section-inner">
       <div class="section-label reveal">
-        <span>01</span>
+        <span>Case 01</span>
         <h2>Context</h2>
       </div>
       <div class="section-body reveal">
@@ -446,7 +473,7 @@
   <section class="section">
     <div class="section-inner">
       <div class="section-label reveal">
-        <span>02</span>
+        <span>Case 01</span>
         <h2>Problem</h2>
       </div>
       <div class="section-body reveal">
@@ -475,7 +502,7 @@
   <section class="section">
     <div class="section-inner">
       <div class="section-label reveal">
-        <span>03</span>
+        <span>Case 01</span>
         <h2>Process</h2>
       </div>
       <div class="section-body reveal">
@@ -534,7 +561,7 @@
   <section class="section">
     <div class="section-inner">
       <div class="section-label reveal">
-        <span>04</span>
+        <span>Case 01</span>
         <h2>Solution</h2>
       </div>
       <div class="section-body reveal">
@@ -556,7 +583,7 @@
   <section class="section">
     <div class="section-inner">
       <div class="section-label reveal">
-        <span>05</span>
+        <span>Case 01</span>
         <h2>Outcome</h2>
       </div>
       <div class="section-body reveal">
@@ -625,7 +652,7 @@
   <section class="section">
     <div class="section-inner">
       <div class="section-label reveal">
-        <span>01</span>
+        <span>Case 02</span>
         <h2>Context</h2>
       </div>
       <div class="section-body reveal">
@@ -646,7 +673,7 @@
   <section class="section">
     <div class="section-inner">
       <div class="section-label reveal">
-        <span>02</span>
+        <span>Case 02</span>
         <h2>Problem</h2>
       </div>
       <div class="section-body reveal">
@@ -670,12 +697,12 @@
         <p>Working from a list of personas provided by the product team, I mapped out the pain points, jobs to be done, and likely behaviour patterns for six distinct user types — from first-time patients starting treatment to users who had already begun elsewhere and were switching pharmacies mid-journey.</p>
 
         <div class="img-block reveal">
-          <img src="user-types.svg" alt="Six user persona cards showing type, key need, and key pain point for each weight management user segment">
+          <img src="user-types.jpg" alt="Six user persona cards showing type, key need, and key pain point for each weight management user segment">
           <p class="img-caption">Six user types identified for the weight management category. Each had different starting points, different levels of medical knowledge, and different expectations of the purchase flow.</p>
         </div>
 
         <div class="img-block reveal">
-          <img src="user-stories.svg" alt="User stories mapped per persona showing jobs to be done and pain points across the weight management journey">
+          <img src="user-stories.jpg" alt="User stories mapped per persona showing jobs to be done and pain points across the weight management journey">
           <p class="img-caption">User stories mapped per persona, used to validate that the designed flow covered the needs of all six user types — including edge cases like mid-journey switchers and users experiencing side effects.</p>
         </div>
       </div>
@@ -688,7 +715,7 @@
   <section class="section">
     <div class="section-inner">
       <div class="section-label reveal">
-        <span>03</span>
+        <span>Case 02</span>
         <h2>Process</h2>
       </div>
       <div class="section-body reveal">
@@ -726,7 +753,7 @@
         <p>The dosage selector went through several rounds of iteration. The central challenge was presenting options that looked consistent across three medications with very different pack structures — some with multiple pack sizes, some with none — without making the differences feel confusing or arbitrary to the user.</p>
 
         <div class="img-block reveal">
-          <img src="Mounjaro.svg" alt="Early and refined iterations of the Mounjaro dosage and pack size selector, showing how the layout evolved to handle this medication's unique pen-based dosing model">
+          <img src="Mounjaro.jpg" alt="Early and refined iterations of the Mounjaro dosage and pack size selector, showing how the layout evolved to handle this medication's unique pen-based dosing model">
           <p class="img-caption">Iteration history for the Mounjaro dosage selector. Mounjaro's single-pen model — where the user doses from the same container rather than choosing between separate pens — required a different layout approach compared to Wegovy and Saxenda.</p>
         </div>
       </div>
@@ -739,7 +766,7 @@
   <section class="section">
     <div class="section-inner">
       <div class="section-label reveal">
-        <span>04</span>
+        <span>Case 02</span>
         <h2>Solution</h2>
       </div>
       <div class="section-body reveal">
@@ -761,7 +788,7 @@
   <section class="section">
     <div class="section-inner">
       <div class="section-label reveal">
-        <span>05</span>
+        <span>Case 02</span>
         <h2>Outcome</h2>
       </div>
       <div class="section-body reveal">
